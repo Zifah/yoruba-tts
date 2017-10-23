@@ -139,7 +139,7 @@ $(function () {
       var rootUrl = getRootUrl();
       var ttsUrl = rootUrl + "/?q=" + name;
       var twitterText = "Hear the pronunciation of " + name + " on Yoruba TTS";
-      $("#share-facebook").attr("href", "http://www.facebook.com/sharer.php?s=100&p[summary]=Ademola&u=" + ttsUrl);
+      $("#share-facebook").attr("href", "http://www.facebook.com/sharer.php?u=" + ttsUrl);
       $("#share-twitter").attr("href", "https://twitter.com/intent/tweet?url=" + ttsUrl + "&text="
         + twitterText + "&hashtags=YorubaTTS&via=YorubaTTS");
       $("meta[property='og:description']").attr("content", twitterText);
