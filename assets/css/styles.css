@@ -473,3 +473,9 @@ ul.alphabets li:hover {
 		width: auto;
 	}
 }
+
+.ui-dialog > .ui-widget-header {
+	background-color: #CDA463;
+	background-image: none;
+	color: #000;
+}

@@ -1,3 +1,7 @@
+$(window).resize(function () {
+  $("#play-sound").dialog("option", "position", "center");
+});
+
 (function ($) {
   $.include = function (url) {
     $.ajax({
@@ -10,17 +14,31 @@
   }
 }(jQuery));
 
+var myOnCanPlayThroughFunction = function () {
+  $("#play-sound").dialog("open");
+  $('.ui-widget-content :link').blur();
+  $('.ui-widget-content :button').blur();
+};
 
+var getParameterByName = function (name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+};
 
+var getRootUrl = function () {
+  var origin = window.location.protocol + '//' + window.location.host;
+  return origin;
+}
 
 /* Execute Callbacks on DomReady */
 
-$(function(){
-
-  <!-- Enable all the tooltip -->
+$(function () {
   $('[data-toggle="tooltip"]').tooltip();
-
-
 
   /* On large devices only */
   if ($(window).width() > 769) {
@@ -64,7 +82,6 @@ $(function(){
       + message + '</div>';
   };
 
-
   /* Submit Name Feedback */
   $('form[name="name_feedback"]').on('submit', function (e) {
     e.preventDefault();
@@ -72,12 +89,12 @@ $(function(){
       url: e.currentTarget.action,
       method: e.currentTarget.method,
       contentType: 'application/json',
-      data: JSON.stringify({name: $('#nameToFeedback').val(), feedback: $('textarea[name="feedback"]').val()}),
+      data: JSON.stringify({ name: $('#nameToFeedback').val(), feedback: $('textarea[name="feedback"]').val() }),
       type: 'json',
       success: function (resp) {
         e.currentTarget.reset();
         $('.response').html(alert_success("Feedback posted successfully. Thanks.")).fadeIn();
-        setTimeout(function(){
+        setTimeout(function () {
           $('#improveEntryModal').modal('close');
         }, 1000);
       },
@@ -88,21 +105,53 @@ $(function(){
   });
 
   $(function () {
+    $('#keyboard').keypress(function (e) {
+      var key = e.which;
+      if (key == 13)  // the enter key code
+      {
+        $('#opener').click();
+        return false;
+      }
+    });
+
     $("#play-sound").dialog({
-        autoOpen: false,
-        modal: true
+      autoOpen: false,
+      modal: true,
+      resizable: false,
+      height: "auto",
+      width: "auto",
+      open: function () {
+        $('.ui-widget-overlay').bind('click', function () {
+          $('#play-sound').dialog('close');
+        })
+      }
     });
+
     $("#opener").click(function () {
-        var name = $("#keyboard").val();
-        var url = 'https://gentle-falls-68008.herokuapp.com/api/v1/names/'+name
-        $('#play-sound')
-        .html("<audio controls autoplay> \
-        <source src='"+url+ "' type='audio/mpeg'> \
+      var name = $("#keyboard").val();
+      var url = 'https://gentle-falls-68008.herokuapp.com/api/v1/names/' + name
+      $('#audio-box')
+        .html("<audio controls autoplay oncanplay='myOnCanPlayThroughFunction()'> \
+        <source src='"+ url + "' type='audio/mpeg'> \
         Your browser does not support the audio tag. \
-        </audio>")
-        $("#play-sound").dialog("open");
+        </audio>");
+      $("#play-sound").dialog('option', 'title', name);
+      var rootUrl = getRootUrl();
+      var ttsUrl = rootUrl + "/?q=" + name;
+      var twitterText = "Hear the pronunciation of " + name + " on Yoruba TTS";
+      $("#share-facebook").attr("href", "http://www.facebook.com/sharer.php?s=100&p[summary]=Ademola&u=" + ttsUrl);
+      $("#share-twitter").attr("href", "https://twitter.com/intent/tweet?url=" + ttsUrl + "&text="
+        + twitterText + "&hashtags=YorubaTTS&via=YorubaTTS");
+      $("meta[property='og:description']").attr("content", twitterText);
     });
-});
+
+    /* Automatically load word from shared link */
+    var passedName = getParameterByName('q');
+    if (passedName) {
+      $("#keyboard").val(passedName);
+      $("#opener").click();
+    }
+  });
 
   $(function () {
 
@@ -118,10 +167,10 @@ $(function(){
     });
 
     $('#search-tph .th').typeahead({
-        hint: true,
-        highlight: true,
-        minLength: 1
-      },
+      hint: true,
+      highlight: true,
+      minLength: 1
+    },
       {
         name: 'searchname',
         source: names
@@ -194,14 +243,14 @@ $(function(){
 
       $("ul.alphabets li").filter(function () {
         return $(this).text() === alphabet;
-      }).css({"background-color": "#D3A463", "font-weight": "bold"});
+      }).css({ "background-color": "#D3A463", "font-weight": "bold" });
 
     }
 
   });
 
   /* Submit Name callbacks */
-  $(function(){
+  $(function () {
 
     // Add GeoLocation Tags Input
     $("select[multiple]").multipleSelect();
