@@ -1,4 +1,3 @@
-<!-- Header -->
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +17,7 @@
     <meta name="twitter:description" content="Over 10,000 Yoruba names and still growing...">
     <meta name="twitter:site" content="@Yorubanames">
     <meta name="twitter:creator" content="@Yorubanames">
-    <meta name="twitter:image" content="/assets/img/yd-logo-brown-black-beta.png">
+    <meta name="twitter:image" content="/assets/img/logo/tts-fb-logo-blue.png">
 
     <link href="/assets/img/favicon.png" rel="shortcut icon">
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +62,11 @@
     <header>
         <div class="container">
 
-            <div class="navbar-brand"><a href="/"><img class="logo" src="/assets/img/yd-logo-brown-black-beta.png" alt="YorubaName.com" title="YorubaName.com"></a></div>
+            <div class="navbar-brand">
+                <a href="/">
+                    <img class="logo" src="/assets/img/logo/tts-fb-logo-blue.png" alt="YorubaTts.com" title="YorubaTts.com">
+                </a>
+            </div>
 
             <div id="layout-nav" class="navbar" role="navigation">
                 <div class="navbar-header">
@@ -77,13 +80,25 @@
 
                 <div class="collapse navbar-collapse navbar-main-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about-us">About</a></li>
-                        <li><a href="/volunteer">Volunteer</a></li>
-                        <li><a href="https://www.indiegogo.com/projects/the-yoruba-names-dictionary#/story" target="_blank">Donate</a></li>
-                        <li><a href="http://blog.yorubaname.com" target="_blank">Blog</a></li>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/about-us">About</a>
+                        </li>
+                        <li>
+                            <a href="/volunteer">Volunteer</a>
+                        </li>
+                        <li>
+                            <a href="https://www.indiegogo.com/projects/the-yoruba-names-dictionary#/story" target="_blank">Donate</a>
+                        </li>
+                        <li>
+                            <a href="http://blog.yorubaname.com" target="_blank">Blog</a>
+                        </li>
                         <!--li><a href="/login">Login | Register</a></li-->
-                        <li><a href="/contact-us">Contact Us</a></li>
+                        <li>
+                            <a href="/contact-us">Contact Us</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -100,21 +115,27 @@
                     <div class="search-input" id="search-tph">
                         <input class="form-control th this-query" id="keyboard" name="searchname" placeholder="Enter a word, phrase or sentence in Yoruba to hear the pronunciation"
                             autocomplete="off" spellcheck="false">
-                        <button id="opener" class="btn btn-search btn-success" type="button"><i class="fa fa-search"></i></button>
+                        <button id="opener" class="btn btn-search btn-success" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
                         <div id="play-sound" title="Your text in audio" style="display:none">
                             <p id="audio-box"></p>
                             <p>&nbsp;</p>
                             <p class="share">
                                 SHARE ON:
                                 <a id="share-facebook" target="_blank" title="Facebook">
-                                        <span class="fa fa-facebook-square fa-2x"></span>
-                                    </a> &nbsp;
+                                    <span class="fa fa-facebook-square fa-2x"></span>
+                                </a> &nbsp;
                                 <a id="share-twitter" target="_blank" title="Twitter">
-                                        <span class="fa fa-twitter-square fa-2x"></span>
-                                    </a>
+                                    <span class="fa fa-twitter-square fa-2x"></span>
+                                </a> &nbsp;
+                                <button id="share-link" title="Copy link" onclick="copyLinkToClipboard();">
+                                    <span class="fa fa-clipboard fa-2x"></span>
+                                </button>
                             </p>
                         </div>
-                    </div><br />
+                    </div>
+                    <br />
                     <!-- /input-group -->
                 </div>
                 <div class="row">
@@ -124,26 +145,38 @@
         </div>
     </section>
     <!-- /search -->
-
     <section>
-        <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row quote">
+                    <p>
+                        "Preservation - both in rendition and transmission - requires keeping faith with the dynamics of any culture, especially
+                        where that culture is very much alive... This new initiative promises a quantum leap in finally leveling
+                        up with the intrinsic dynamics of this vehicle for a culture that is increasingly acknowledged as
+                        one of the richest in the world."
+                        <br>
+                        <strong class="author">— Wole Soyinka</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
         <!-- /llm -->
-
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <h3>Our key supporters</h3>
+                    <h3>Powered By</h3>
                 </div>
-                <div class="col-sm-2 col-sm-offset-2"><a href="http://capitalsqua.re/" target="_blank"><img
-                    class="img-responsive" src="/assets/img/supporters/capital_square.png"></a></div>
-                <div class="col-sm-2"><a href="http://www.goethe.de/ins/ng/en" target="_blank"><img class="img-responsive"
-                                                                                                src="/assets/img/supporters/goethe_institut.png"></a>
+                <div class="col-sm-2 col-sm-offset-4">
+                    <a href="http://www.oraturelab.com/" target="_blank" title="Orature Lab">
+                        <img alt="Orature Lab Logo" class="img-responsive" src="/assets/img/supporters/orature_lab.png">
+                    </a>
                 </div>
-                <div class="col-sm-2"><a href="http://www.alt-i.org/index.php" target="_blank"><img class="img-responsive"
-                                                                                                src="/assets/img/supporters/alti.png"></a>
-                </div>
-                <div class="col-sm-2"><a href="http://lgmediting.com/" target="_blank"><img class="img-responsive"
-                                                                                        src="/assets/img/supporters/lgmediting-logo.png"></a>
+                <div class="col-sm-2">
+                    <a href="http://www.yorubaname.com/" target="_blank" title="YorubaName.com">
+                        <img alt="Yoruba Name Logo" class="img-responsive" src="/assets/img/supporters/yoruba_name.png">
+                    </a>
                 </div>
             </div>
 
@@ -152,7 +185,9 @@
                     <div class="fb-page" data-href="https://www.facebook.com/YorubaNames" data-small-header="false" data-adapt-container-width="true"
                         data-hide-cover="false" data-show-facepile="false" data-show-posts="false">
                         <div class="fb-xfbml-parse-ignore">
-                            <blockquote cite="https://www.facebook.com/YorubaNames"><a href="https://www.facebook.com/YorubaNames">Yoruba Names Dictionary</a></blockquote>
+                            <blockquote cite="https://www.facebook.com/YorubaNames">
+                                <a href="https://www.facebook.com/YorubaNames">Yoruba Names Dictionary</a>
+                            </blockquote>
                         </div>
                     </div>
                 </div>
@@ -165,7 +200,9 @@
                         <input type="hidden" name="b_447ae670439b332a80e50107c_0cfdd9d988" tabindex="-1" value="">
                         <div class="form-group">
                             <input type="email" name="EMAIL" placeholder="Enter your email here" class="form-control" required="required">
-                            <button class="btn btn-success"><i class="fa fa-send"></i></button>
+                            <button class="btn btn-success">
+                                <i class="fa fa-send"></i>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -187,13 +224,20 @@
                 </div>
                 <div class="col-sm-4 text-center">
                     <nav class="social-links">
-                        <a href="https://facebook.com/YorubaNames" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="https://twitter.com/YorubaNames" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://facebook.com/YorubaNames" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="https://twitter.com/YorubaNames" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
                     </nav>
                 </div>
                 <div class="col-sm-4 text-right">
-                    <a href="/">Home</a><a href="/about-us">About</a><a href="https://www.indiegogo.com/projects/the-yoruba-names-dictionary#/story"
-                        target="_blank">Donate</a><a href="/volunteer">Volunteer</a><a href="http://blog.yorubaname.com" target="_blank">Blog</a>
+                    <a href="/">Home</a>
+                    <a href="/about-us">About</a>
+                    <a href="https://www.indiegogo.com/projects/the-yoruba-names-dictionary#/story" target="_blank">Donate</a>
+                    <a href="/volunteer">Volunteer</a>
+                    <a href="http://blog.yorubaname.com" target="_blank">Blog</a>
                     <a href="/contact-us">Contact Us</a>
                 </div>
                 <div style="visibility: hidden">

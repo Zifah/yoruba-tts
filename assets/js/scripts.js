@@ -35,6 +35,14 @@ var getRootUrl = function () {
   return origin;
 }
 
+var copyLinkToClipboard = function () {
+  var $temp = $("<input>");
+  $("#play-sound").append($temp);
+  $temp.val($("#share-link").attr("link")).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+
 /* Execute Callbacks on DomReady */
 
 $(function () {
@@ -61,7 +69,7 @@ $(function () {
           e = ($(window).width() - c) / 2,
           f = ($(window).height() - d) / 2,
           g = "status=1,width=" + c + ",height=" + d + ",top=" + f + ",left=" + e;
-        window.open(ev.currentTarget.href, "Share Yoruba Names", g);
+        window.open(ev.currentTarget.href, "Share Yorùbá Names", g);
       } else {
         window.open(ev.currentTarget.href);
       }
@@ -128,21 +136,37 @@ $(function () {
     });
 
     $("#opener").click(function () {
-      var name = $("#keyboard").val();
-      var url = 'https://gentle-falls-68008.herokuapp.com/api/v1/names/' + name
+      var text = $("#keyboard").val();
+      var maxLength = 30;
+      var trimmedText = text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+      var url = 'https://gentle-falls-68008.herokuapp.com/api/v1/names/' + text
       $('#audio-box')
         .html("<audio controls autoplay oncanplay='myOnCanPlayThroughFunction()'> \
         <source src='"+ url + "' type='audio/mpeg'> \
         Your browser does not support the audio tag. \
         </audio>");
-      $("#play-sound").dialog('option', 'title', name);
+      $("#play-sound").dialog('option', 'title', trimmedText);
       var rootUrl = getRootUrl();
-      var ttsUrl = rootUrl + "/?q=" + name;
-      var twitterText = "Hear the pronunciation of " + name + " on Yoruba TTS";
-      $("#share-facebook").attr("href", "http://www.facebook.com/sharer.php?u=" + ttsUrl);
-      $("#share-twitter").attr("href", "https://twitter.com/intent/tweet?url=" + ttsUrl + "&text="
-        + twitterText + "&hashtags=YorubaTTS&via=YorubaTTS");
-      $("meta[property='og:description']").attr("content", twitterText);
+      var shareUrl = rootUrl + "/?q=" + text;
+      var urlShortener = "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCgMULF-1PPlsXf-auh4K-x1rIFNp4zy_Y";
+
+      $.ajax({
+        url: urlShortener,
+        type: "POST",
+        data: JSON.stringify({ longUrl: shareUrl }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+      }).done(function (data, textStatus, jqXHR) {
+        shareUrl = data.id; // John
+        var twitterText = "Hear the pronunciation of '" + trimmedText + "' on Yorùbá TTS";
+        $("#share-facebook").attr("href", "http://www.facebook.com/sharer.php?u=" + shareUrl + "&quote="+twitterText);
+        $("#share-twitter").attr("href", "https://twitter.com/intent/tweet?url=" + shareUrl + "&text="
+          + twitterText + "&hashtags=YorubaTTS&via=YorubaTTS");
+        $("#share-link").attr("link", shareUrl);
+        $("meta[property='og:description']").attr("content", twitterText);
+      }).fail(function () {
+        alert("An error occurred");
+      });
     });
 
     /* Automatically load word from shared link */

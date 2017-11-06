@@ -136,6 +136,13 @@ header .container img.logo {
     background: none;
 }
 
+.quote {
+	color: black;
+}
+
+.quote > .author {
+	text-align: right;
+}
 
 .jumbotron {
 	background: #F2F2F2 no-repeat center center;
