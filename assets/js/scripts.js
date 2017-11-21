@@ -200,15 +200,7 @@ $(function () {
       var longUrl = rootUrl + "/?q=" + text;
       var urlShortener = "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCgMULF-1PPlsXf-auh4K-x1rIFNp4zy_Y";
 
-      var twitterText = "Hear the pronunciation of '" + trimmedText + "' on Yorùbá TTS";
-      $("#share-facebook").attr("link", longUrl);
-      $("#share-facebook").attr("text", twitterText);
-      $("#share-twitter").attr("href", "https://twitter.com/intent/tweet?url=" + encodeURI(longUrl) + "&text="
-        + twitterText + "&hashtags=YorubaTTS&via=YorubaTTS");
-      $("#share-link").attr("link", longUrl);
-      $("meta[property='og:description']").attr("content", twitterText);
-
-      /* $.ajax({
+      $.ajax({
         url: urlShortener,
         type: "POST",
         data: JSON.stringify({ longUrl: longUrl }),
@@ -225,7 +217,7 @@ $(function () {
         $("meta[property='og:description']").attr("content", twitterText);
       }).fail(function () {
         alert("An error occurred");
-      }); */
+      });
     });
 
     /* Automatically load word from shared link */
