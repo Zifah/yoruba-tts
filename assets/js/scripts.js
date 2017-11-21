@@ -1,5 +1,6 @@
 $(window).resize(function () {
   $("#play-sound").dialog("option", "position", "center");
+  $("#contact-us").dialog("option", "position", "center");
 });
 
 (function ($) {
@@ -13,6 +14,27 @@ $(window).resize(function () {
     });
   }
 }(jQuery));
+
+var showContactUs = function(){
+  $("#contact-us").dialog("open");
+  $('.ui-widget-content :link').blur();
+  $('.ui-widget-content :button').blur();
+};
+
+var showFAQ = function(){
+  $("#faq").dialog("open");
+  $('.ui-widget-content :link').blur();
+  $('.ui-widget-content :button').blur();
+};
+
+var shareDialog = function(){
+  var theLink = $("#share-facebook").attr("link");
+  FB.ui(
+    {
+     method: 'share',
+     href: theLink,
+   }, function(response){});
+}
 
 var myOnCanPlayThroughFunction = function () {
   $("#play-sound").dialog("open");
@@ -135,6 +157,32 @@ $(function () {
       }
     });
 
+    $("#contact-us").dialog({
+      autoOpen: false,
+      modal: true,
+      resizable: false,
+      height: "auto",
+      width: "auto",
+      open: function () {
+        $('.ui-widget-overlay').bind('click', function () {
+          $('#contact-us').dialog('close');
+        })
+      }
+    });
+
+    $("#faq").dialog({
+      autoOpen: false,
+      modal: true,
+      resizable: false,
+      height: "auto",
+      width: "auto",
+      open: function () {
+        $('.ui-widget-overlay').bind('click', function () {
+          $('#faq').dialog('close');
+        })
+      }
+    });
+
     $("#opener").click(function () {
       var text = $("#keyboard").val();
       var maxLength = 30;
@@ -147,22 +195,22 @@ $(function () {
         </audio>");
       $("#play-sound").dialog('option', 'title', trimmedText);
       var rootUrl = getRootUrl();
-      var shareUrl = rootUrl + "/?q=" + text;
+      var longUrl = rootUrl + "/?q=" + text;
       var urlShortener = "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCgMULF-1PPlsXf-auh4K-x1rIFNp4zy_Y";
 
       $.ajax({
         url: urlShortener,
         type: "POST",
-        data: JSON.stringify({ longUrl: shareUrl }),
+        data: JSON.stringify({ longUrl: longUrl }),
         contentType: "application/json; charset=utf-8",
         dataType: "json"
       }).done(function (data, textStatus, jqXHR) {
-        shareUrl = data.id; // John
+        var shortUrl = data.id; // John
         var twitterText = "Hear the pronunciation of '" + trimmedText + "' on Yorùbá TTS";
-        $("#share-facebook").attr("href", "http://www.facebook.com/sharer.php?u=" + shareUrl + "&quote="+twitterText);
-        $("#share-twitter").attr("href", "https://twitter.com/intent/tweet?url=" + shareUrl + "&text="
+        $("#share-facebook").attr("link", longUrl);
+        $("#share-twitter").attr("href", "https://twitter.com/intent/tweet?url=" + shortUrl + "&text="
           + twitterText + "&hashtags=YorubaTTS&via=YorubaTTS");
-        $("#share-link").attr("link", shareUrl);
+        $("#share-link").attr("link", shortUrl);
         $("meta[property='og:description']").attr("content", twitterText);
       }).fail(function () {
         alert("An error occurred");

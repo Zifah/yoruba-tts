@@ -2,6 +2,16 @@
 <html>
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93558421-2"></script>
+    <script>
+        if (window.location.hostname !== 'localhost') {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-93558421-2');
+        }
+    </script>
     <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
     <meta name="description" content="YorubaNames">
 
@@ -9,7 +19,7 @@
     <meta property="og:url" content="http://www.yorubaname.com">
     <meta property="og:description" content="Over 10,000 Yoruba names and still growing...">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="/assets/img/yd-logo-brown-black-beta.png">
+    <meta property="og:image" content="/assets/img/tts-favicon.jpg">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="YorubaNames">
@@ -17,17 +27,17 @@
     <meta name="twitter:description" content="Over 10,000 Yoruba names and still growing...">
     <meta name="twitter:site" content="@Yorubanames">
     <meta name="twitter:creator" content="@Yorubanames">
-    <meta name="twitter:image" content="/assets/img/logo/tts-fb-logo-blue.png">
+    <meta name="twitter:image" content="/assets/img/tts-favicon.jpg">
 
-    <link href="/assets/img/favicon.png" rel="shortcut icon">
+    <link href="/assets/img/tts-favicon.jpg" rel="shortcut icon">
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/keyboard.css" rel="stylesheet">
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="/assets/css/overwrite.css" rel="stylesheet">
     <link href="/assets/css/multiple-select.css" rel="stylesheet">
     <link href="//fast.fonts.net/cssapi/6dc70f84-e724-4068-9f7a-797b1bf01ddb.css" rel="stylesheet">
-    <link href="/assets/css/styles.css" rel="stylesheet">
     <link href="//code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet">
+    <link href="/assets/css/styles.css" rel="stylesheet">
 
 
     <title>Home</title>
@@ -58,16 +68,32 @@
 </head>
 
 <body>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '293842611108998',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v2.11'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <!-- Header -->
     <header>
         <div class="container">
-
             <div class="navbar-brand">
                 <a href="/">
-                    <img class="logo" src="/assets/img/logo/tts-fb-logo-blue.png" alt="YorubaTts.com" title="YorubaTts.com">
+                    <img class="logo" src="/assets/img/logo/tts-fb-logo-blue.png" alt="ttsYoruba.com" title="ttsYoruba.com">
                 </a>
             </div>
-
             <div id="layout-nav" class="navbar" role="navigation">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -77,27 +103,240 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-
                 <div class="collapse navbar-collapse navbar-main-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="/">Home</a>
                         </li>
                         <li>
-                            <a href="/about-us">About</a>
+                            <a href="http://www.yorubaname.com">YorubaName.com</a>
                         </li>
                         <li>
-                            <a href="/volunteer">Volunteer</a>
-                        </li>
-                        <li>
-                            <a href="https://www.indiegogo.com/projects/the-yoruba-names-dictionary#/story" target="_blank">Donate</a>
-                        </li>
-                        <li>
-                            <a href="http://blog.yorubaname.com" target="_blank">Blog</a>
+                            <a href="#" onclick="showFAQ()">FAQ</a>
+                            <section id="faq" title="Frequently Asked Questions - TTSYoruba" class="text-dialog" style="display: none">
+                                <h3>What is TTS?</h3>
+                                <p class="lead">
+                                    This is an abbreviation for Text-to-Speech, a program designed to convert text input (words, phrases, sentences) into audio.
+                                    It is an application that can pronounce Yorùbá words, phrases, sentences, from text
+                                    input.
+                                </p>
+
+                                <h4>Why TTSYoruba?</h4>
+                                <p>
+                                    Yorùbá is a language spoken by over 30 million people in Nigeria alone and by millions more in Benin Republic, Togo, Ghana,
+                                    Brazil, Cuba, Jamaica, and the United States. It is also a language with an extensive
+                                    and enduring literary and religious value, but with inadequate representation in technology
+                                    (like most African languages). By creating tools like the TTS machine (and many more
+                                    like
+                                    <a id="link" href="http://www.yorubaname.com" target="_blank">the YorubaName dictionary</a>,
+                                    <a id="link" href="http://blog.yorubaname.com/keyboards/">free downloadable keyboards</a>, etc, we are trying to better empower African languages
+                                    to serve interested users in the technological age.
+                                </p>
+
+                                <h4>How can I use this tool?</h4>
+                                <p>
+                                    It can be used as either a
+                                    <strong>text reader</strong> or
+                                    <strong>tone/spelling verifier</strong> or as a
+                                    <strong>tone marking teacher</strong>.
+                                </p>
+                                <p>
+                                    As a
+                                    <strong>text reader</strong>, you can paste a body of text in the space provided and have the
+                                    machine read it to you. This will work for people who have problems reading Yorùbá
+                                    texts but can comprehend it if spoken to them.</p>
+                                <p>
+                                    As
+                                    <strong>tone/spelling verifier</strong>, you can use TTSYorùbá to verify that the tonemarking
+                                    you have placed on a piece of text is correct by having the machine pronounce it for
+                                    you first. This also works for people who have had clients deliver translated Yorùbá
+                                    texts to them. By copying and pasting random segments of the delivered work into this
+                                    machine, you can hear the output and know whether the work is well done or not.</p>
+                                <p>
+                                    As a
+                                    <strong>tone marking teacher</strong>, you will be able to use the application to actually understand
+                                    how different tones are pronounced. By the time you try out different tonal combinations
+                                    on different words, you will eventually figure out how tonemarking works in Yorùbá.
+                                    So, in some way, this can actually teach you how to learn to write properly in Yorùbá.
+                                </p>
+
+
+                                <h4>How else can I use it?</h4>
+                                <p>You can also use it to send audio missives online. For instance, each generated sound can
+                                    be shared on Twitter or Facebook, or even copied and sent through messenger or other
+                                    means. That way, texting becomes not the only way to communicate. You can now send sounds,
+                                    which can be intimate or mischievous, as you want it. Up to you how you decide to use
+                                    it.
+                                </p>
+
+                                <h4>Why Yoruba?</h4>
+                                <p>
+                                    This is an experiment in finding out whether speech synthesis is possible in an African language. We wrote about the thought
+                                    process behind this decision
+                                    <a id="link" href="https://medium.com/@baroka/what-were-building-next-8b34f7ff545c" target="_blank">here</a>. Yorùbá is the natural first choice because the TTS machine was created to support
+                                    a Yorùbá Names Dictionary at YorubaName.com. We are open to trying out for more languages
+                                    provided we get support. If you are a linguist or developer interested in collaborating
+                                    with us on this, do
+                                    <a id="link" href="mailto:volunteer@yorubaname.com">send us an email.</a>
+                                </p>
+
+                                <h4>The audio output isn’t correct. What gives?</h4>
+                                <p>
+                                    Check your tone marking. The tool was built with the understanding of Yorùbá phonology. So what you put in is what you get
+                                    out.
+                                </p>
+
+                                <h4>
+                                    I can’t tone mark my input because I don’t have a keyboard that can put the tone marks.
+                                </h4>
+                                <p>
+                                    Well, you’re in luck. You don’t need a physical keyboard anymore. We created a
+                                    <strong>free</strong> tonemarking software which you can download
+                                    <a id="link" href="http://blog.yorubaname.com/keyboards/" target="_blank">here</a>.
+                                </p>
+
+                                <h4>
+                                    Tone marking is hard sha. Can you teach me?
+                                </h4>
+                                <p>
+                                    Yes. We have a short help video to introduce you to the rules behind Yorùbá tonemarking. Watch it below:
+                                </p>
+                                <p class="text-center">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/pPyk-oIv7L8" frameborder="0" allowfullscreen></iframe>
+                                </p>
+                                <p>
+                                    But more importantly, feel free to make mistakes. Over time, and after many trials, you will eventually figure out which
+                                    tone mark gives which sounds.
+                                </p>
+
+                                <h4>
+                                    Okay, I’m a millennial and don’t want to learn the tonemarking skill at all. I just want to type in a bland text and get
+                                    a good output. This is technology after all.
+                                </h4>
+                                <p>
+                                    Lol, you’re right, and we empathize. We will say you should rethink your stance. We will however like to make you happy by
+                                    letting you know that we are currently working towards a more intuitive app that can
+                                    understand your text input from context and tonemark for you appropriately. But before
+                                    then, do give this a try. You might actually find it very easy to learn.
+                                </p>
+
+                                <h4>
+                                    I am building a tech product and I’ll like to use your Text-to-speech API so my product can “speak” Yorùbá to our customers.
+                                    How do I do that?
+                                </h4>
+                                <p>
+                                    Send us an email at
+                                    <a id="link" href="mailto:project@yorubaname.com" target="_top">project@yorubaname.com</a> with “TTS inquiry” in the subject line. If your product is
+                                    open source and not commercial, you might be able to use our work for free.
+                                </p>
+
+                                <h4>
+                                    Are you looking to create TTS in other African languages?
+                                </h4>
+                                <p>
+                                    Yes, as we said above. Even this work, as it is, isn’t complete. We are working on further iterations to make the output
+                                    more natural sounding. Under the banner of
+                                    <a id="link" href="http://www.oraturelab.com/" target="_blank">Orature Lab</a>, a research and advocacy initiative for African languages, we are working
+                                    to create new opportunities for African languages to thrive by empowering them with tech
+                                    and documentation initiatives.
+                                </p>
+
+                                <h4>
+                                    How can we help?
+                                </h4>
+                                <section>
+                                    <span>You can donate to our project using the button below.</span>
+
+                                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="text-center">
+                                        <input type="hidden" name="cmd" value="_s-xclick">
+                                        <input type="hidden" name="hosted_button_id" value="JT6MPHT3RGHDN">
+                                        <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+                                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                    </form>
+
+                                    <p>
+
+                                        The project is supported by personal time/effort so we are always looking for funding to improve the work, and to conduct
+                                        more research into Automatic Speech Recognition which can convert this project into
+                                        bigger uses in artificial intelligence. You can also volunteer your skills on the
+                                        project or direct us to funding agencies you might know.
+                                    </p>
+                                </section>
+
+                                <h4>
+                                    Who do we want to thank for the work on this application?
+                                </h4>
+                                <p>
+                                    The following people made it happen. First, the donors who gave money when we last did
+                                    <a id="link" href="http://www.okayafrica.com/yoruba-text-to-speech-app/">a crowdfunding drive</a> for this project on Indiegogo. Second, the following people
+                                    volunteered skills that brought the application to life:
+                                    <a id="link" href="https://www.linkedin.com/in/k%E1%BB%8D%CC%81la%CC%81-tu%CC%81b%E1%BB%8D%CC%80su%CC%81n-64a86912/" target="_blank">Kọ́lá Túbọ̀sún</a> for the Yorùbá phonological rules,
+                                    <a id="link" href="https://www.linkedin.com/in/adedayo-oluokun-21a4ab60/" target="_blank">Adédayọ̀ Olúòkun</a> for the Python code behind the app,
+                                    <a id="link" href="https://www.linkedin.com/in/dadepo/" target="_blank">Dadépọ̀ Adérẹ̀mí</a> for the unicode normalization help,
+                                    <a id="link" href="https://www.linkedin.com/in/taqwa-ghazal-03554024/" target="_blank">Taqwa Ghazal</a> for the initial design wireframes, and
+                                    <a id="link" href="https://www.linkedin.com/in/hafizadewuyi/" target="_blank">Hafiz Adéwuyì</a> for the web design.
+                                </p>
+
+                                <h4>
+                                    Can I use this voice anyway I like?
+                                </h4>
+                                <p>
+                                    Yes, but this
+                                    <strong>standard disclaimer applies</strong>: You are responsible for any use to which you put
+                                    this TTS voice. YorubaName.com or any of its volunteers and administrators isn’t responsible
+                                    for whatever you do with the generated voice.
+                                </p>
+
+                                <h4>
+                                    What else do you have up your sleeves, people?
+                                </h4>
+                                <p>
+                                    In the new year 2018, we intend to launch the IgboName.com project fully, which is like YorubaName but, of course, for Igbo.
+                                    We intend to launch for as many other Nigerian (or African) language as we have the resources
+                                    to create. So, do reach out to us if you have ideas. Also, in furtherance of our drive
+                                    to use crowdsourcing to document valuable cultural resources, we will also be launching
+                                    YorubaWord.com which hopes to be the first multimedia Yorùbá (Monolingual and Bilingual)
+                                    Lexical Dictionary anywhere. You won’t need to tag your facebook friend when next you
+                                    want to know the meaning of a word. We intend to create these kinds of dictionaries in
+                                    as many languages as possible. We’re open to collaborations. To keep track of all our
+                                    work, projects, and community efforts for African language technology, follow the following
+                                    twitter handles:
+                                    <a id="link" href="http://www.twitter.com/yorubanames" target="_blank">@Yorubanames</a>
+                                    <a id="link" href="http://www.twitter.com/yorubaword" target="_blank">@YorubaWord</a>
+                                    <a id="link" href="http://www.twitter.com/igbonames" target="_blank">@IgboNames</a>
+                                    <a id="link" href="http://www.twitter.com/oraturelab" target="_blank">@OratureLab</a>
+                                    @YorubaWord @IgboNames @OratureLab.
+                                </p>
+                            </section>
                         </li>
                         <!--li><a href="/login">Login | Register</a></li-->
                         <li>
-                            <a href="/contact-us">Contact Us</a>
+                            <a href="#" onclick="showContactUs()">Contact Us</a>
+                            <section id="contact-us" title="Contact Us" class="text-dialog">
+                                <h3>Contact Information</h3>
+
+                                <p class="lead">We&#x27;re easy to get through to, whether in person or by mail.</p>
+
+                                <p>You may send an email to
+                                    <a id="link" href="mailto:project@yorubaname.com">project@yorubaname.com</a>
+                                </p>
+                                <p>Or visit our office at YorubaName.com
+                                    <br> 2nd Floor, The Garnet Building
+                                    <br> Lekki - Epe Express Road, Lekki
+                                    <br> Lagos 101245
+                                    <br> Nigeria
+                                </p>
+
+                                <p class="lead">Follow us on Social Media</p>
+                                <nav class="social-links">
+                                    <a href="https://facebook.com/YorubaNames" target="_blank">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a href="https://twitter.com/YorubaNames" target="_blank">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </nav>
+                            </section>
                         </li>
                     </ul>
                 </div>
@@ -113,7 +352,7 @@
                 <h1>Welcome to Yorùbá Text-to-Speech</h1>
                 <div class="form-horizontal" role="form">
                     <div class="search-input" id="search-tph">
-                        <input class="form-control th this-query" id="keyboard" name="searchname" placeholder="Enter a word, phrase or sentence in Yoruba to hear the pronunciation"
+                        <input class="form-control th this-query" id="keyboard" name="searchname" placeholder="Enter a word, phrase or sentence in Yorùbá to hear the pronunciation"
                             autocomplete="off" spellcheck="false">
                         <button id="opener" class="btn btn-search btn-success" type="button">
                             <i class="fa fa-search"></i>
@@ -123,7 +362,7 @@
                             <p>&nbsp;</p>
                             <p class="share">
                                 SHARE ON:
-                                <a id="share-facebook" target="_blank" title="Facebook">
+                                <a id="share-facebook" title="Facebook" href="#" onclick="shareDialog()">
                                     <span class="fa fa-facebook-square fa-2x"></span>
                                 </a> &nbsp;
                                 <a id="share-twitter" target="_blank" title="Twitter">
@@ -155,10 +394,21 @@
                         up with the intrinsic dynamics of this vehicle for a culture that is increasingly acknowledged as
                         one of the richest in the world."
                         <br>
-                        <strong class="author">— Wole Soyinka</strong>
+                        <strong class="author">— Wọlé Ṣóyínka, Nobel Laureate (1986)</strong>
                     </p>
+
                 </div>
             </div>
+        </div>
+    </section>
+    <section>
+        <div class="text-center">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="text-center">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="JT6MPHT3RGHDN">
+                <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
         </div>
     </section>
     <section>
@@ -230,15 +480,16 @@
                         <a href="https://twitter.com/YorubaNames" target="_blank">
                             <i class="fa fa-twitter"></i>
                         </a>
+                        <a href="https://www.instagram.com/yorubanames/" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                        </a>
                     </nav>
                 </div>
                 <div class="col-sm-4 text-right">
                     <a href="/">Home</a>
-                    <a href="/about-us">About</a>
-                    <a href="https://www.indiegogo.com/projects/the-yoruba-names-dictionary#/story" target="_blank">Donate</a>
-                    <a href="/volunteer">Volunteer</a>
-                    <a href="http://blog.yorubaname.com" target="_blank">Blog</a>
-                    <a href="/contact-us">Contact Us</a>
+                    <a href="http://www.yorubaname.com">YorubaName.com</a>
+                    <a href="#" onclick="showFAQ()">FAQ</a>
+                    <a href="#" onclick="showContactUs()">Contact Us</a>
                 </div>
                 <div style="visibility: hidden">
                     <div id="host"></div>
@@ -247,23 +498,6 @@
         </div>
     </footer>
     <!-- /body -->
-    <script>
-        if (window.location.hostname !== 'localhost') {
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-            ga('create', 'UA-72815210-1', 'auto');
-            ga('send', 'pageview');
-        }
-    </script>
 </body>
 
 </html>

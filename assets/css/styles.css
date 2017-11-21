@@ -1,4 +1,7 @@
 /* SECTION 0: Keyboard UI Override */
+.btn-lg.round {
+	border-radius: 10px;
+}
 
 .ui-keyboard {
 	background-color: rgba(205, 164, 99, 0.8);
@@ -485,4 +488,13 @@ ul.alphabets li:hover {
 	background-color: #CDA463;
 	background-image: none;
 	color: #000;
+}
+
+.text-dialog {
+	display: none;
+	font-family: 'FF Meta W07';
+	font-weight: 400;
+	font-size: 16px;
+	color:#444;
+	background-color: #f2f2f2;
 }
