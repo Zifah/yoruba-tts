@@ -27,12 +27,14 @@ var showFAQ = function(){
   $('.ui-widget-content :button').blur();
 };
 
-var shareDialog = function(){
+var shareDialog = function(quote){
   var theLink = $("#share-facebook").attr("link");
+  var description = $("#share-facebook").attr("text");
   FB.ui(
     {
      method: 'share',
      href: theLink,
+     quote: description,
    }, function(response){});
 }
 
@@ -208,6 +210,7 @@ $(function () {
         var shortUrl = data.id; // John
         var twitterText = "Hear the pronunciation of '" + trimmedText + "' on Yorùbá TTS";
         $("#share-facebook").attr("link", longUrl);
+        $("#share-facebook").attr("text", twitterText);
         $("#share-twitter").attr("href", "https://twitter.com/intent/tweet?url=" + shortUrl + "&text="
           + twitterText + "&hashtags=YorubaTTS&via=YorubaTTS");
         $("#share-link").attr("link", shortUrl);
