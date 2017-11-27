@@ -208,7 +208,7 @@ $(function () {
         dataType: "json"
       }).done(function (data, textStatus, jqXHR) {
         var shortUrl = data.id; // John
-        var twitterText = "Hear the pronunciation of '" + trimmedText;
+        var twitterText = "Hear the pronunciation of '" + trimmedText + "'";
         $("#share-facebook").attr("link", longUrl);
         $("#share-facebook").attr("text", twitterText);
         $("#share-twitter").attr("href", "https://twitter.com/intent/tweet?url=" + shortUrl + "&text="
