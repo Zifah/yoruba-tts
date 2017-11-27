@@ -212,7 +212,7 @@ $(function () {
         $("#share-facebook").attr("link", longUrl);
         $("#share-facebook").attr("text", twitterText);
         $("#share-twitter").attr("href", "https://twitter.com/intent/tweet?url=" + shortUrl + "&text="
-          + twitterText + "&hashtags=TTSYoruba&via=TTSYorùbá");
+          + twitterText + "&hashtags=TTSYoruba&via=TTSYoruba");
         $("#share-link").attr("link", shortUrl);
         $("meta[property='og:description']").attr("content", twitterText);
       }).fail(function () {
