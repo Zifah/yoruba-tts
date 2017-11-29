@@ -200,6 +200,7 @@ $(function () {
       var longUrl = rootUrl + "/?q=" + text;
       var urlShortener = "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCgMULF-1PPlsXf-auh4K-x1rIFNp4zy_Y";
 
+      $.blockUI();
       $.ajax({
         url: urlShortener,
         type: "POST",
@@ -217,6 +218,8 @@ $(function () {
         $("meta[property='og:description']").attr("content", twitterText);
       }).fail(function () {
         alert("An error occurred");
+      }).complete(function(){
+        $.unblockUI();
       });
     });
 
@@ -404,5 +407,4 @@ $(function () {
     });
 
   });
-
 });
