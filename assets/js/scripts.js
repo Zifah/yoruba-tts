@@ -15,33 +15,33 @@ $(window).resize(function () {
   }
 }(jQuery));
 
-var showContactUs = function(){
+var showContactUs = function () {
   $("#contact-us").dialog("open");
   $('.ui-widget-content :link').blur();
   $('.ui-widget-content :button').blur();
 };
 
-var showFAQ = function(){
+var showFAQ = function () {
   $("#faq").dialog("open");
   $('.ui-widget-content :link').blur();
   $('.ui-widget-content :button').blur();
 };
 
-var shareDialog = function(quote){
+var shareDialog = function (quote) {
   var theLink = $("#share-facebook").attr("link");
   var description = $("#share-facebook").attr("text");
   FB.ui(
     {
-     method: 'share',
-     href: theLink,
-     quote: description,
-   }, function(response){});
+      method: 'share',
+      href: theLink,
+      quote: description,
+    }, function (response) { });
 }
 
 var myOnCanPlayThroughFunction = function () {
-  $("#play-sound").dialog("open");
-  $('.ui-widget-content :link').blur();
-  $('.ui-widget-content :button').blur();
+  // $("#play-sound").dialog("open");
+  // $('.ui-widget-content :link').blur();
+  // $('.ui-widget-content :button').blur();
 };
 
 var getParameterByName = function (name, url) {
@@ -218,7 +218,10 @@ $(function () {
         $("meta[property='og:description']").attr("content", twitterText);
       }).fail(function () {
         alert("An error occurred");
-      }).complete(function(){
+      }).complete(function () {
+        $("#play-sound").dialog("open");
+        $('.ui-widget-content :link').blur();
+        $('.ui-widget-content :button').blur();
         $.unblockUI();
       });
     });
